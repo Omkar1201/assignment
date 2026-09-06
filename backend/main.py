@@ -46,7 +46,7 @@ def health():
 @app.get("/api/agents")
 def list_agents(
     page: int = Query(1, ge=1),
-    page_size: int = Query(20, ge=1, le=100),
+    page_size: int = Query(20, ge=1, le=1000),
     language: Optional[str] = None,
     voice_persona: Optional[str] = None,
     status: Optional[str] = None
@@ -81,7 +81,7 @@ def update_agent(agent_id: str, agent_data: Dict[str, Any] = Body(...)):
 @app.get("/api/calls")
 def list_calls(
     page: int = Query(1, ge=1),
-    page_size: int = Query(20, ge=1, le=100),
+    page_size: int = Query(20, ge=1, le=1000),
     status: Optional[str] = None
 ):
     res = hunar_service.list_calls(page=page, page_size=page_size, status=status)
