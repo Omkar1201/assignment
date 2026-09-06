@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const PYTHON_BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BACKEND_URL || "http://127.0.0.1:5000";
+const PYTHON_BACKEND_URL =
+  process.env.BACKEND_URL ||
+  process.env.NEXT_PUBLIC_BACKEND_URL ||
+  (process.env.NODE_ENV === "production" ? "https://assignment-hbhe.onrender.com" : "http://127.0.0.1:5000");
 
 async function proxyToPythonBackend(req: NextRequest, pathStr: string, method: string) {
   const urlObj = new URL(req.url);
