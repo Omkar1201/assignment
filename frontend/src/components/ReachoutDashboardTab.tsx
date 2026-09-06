@@ -311,14 +311,14 @@ export const ReachoutDashboardTab: React.FC = () => {
                                 ★ Candidate Interested
                               </span>
                             )}
-                            {res.qualification_summary && (
-                              <p className="text-slate-300 line-clamp-2 italic text-[11px]">{`"${res.qualification_summary}"`}</p>
+                            {Boolean(res.qualification_summary) && (
+                              <p className="text-slate-300 line-clamp-2 italic text-[11px]">{`"${formatValue(res.qualification_summary)}"`}</p>
                             )}
-                            {res.notice_period && (
-                              <span className="inline-block mr-1 text-[10px] text-indigo-300">Notice: {res.notice_period}</span>
+                            {Boolean(res.notice_period) && (
+                              <span className="inline-block mr-1 text-[10px] text-indigo-300">Notice: {formatValue(res.notice_period)}</span>
                             )}
-                            {res.compensation_expectation && (
-                              <span className="inline-block text-[10px] text-amber-300">Expected: {res.compensation_expectation}</span>
+                            {Boolean(res.compensation_expectation) && (
+                              <span className="inline-block text-[10px] text-amber-300">Expected: {formatValue(res.compensation_expectation)}</span>
                             )}
                           </div>
                         ) : (
